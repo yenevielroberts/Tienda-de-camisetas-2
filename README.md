@@ -10,6 +10,14 @@ El objetivo es construir una API con autenticación JWT y un frontend en React.
 - .env files para configuración
 - Tests con Jest / Supertest (pendiente)
 
+## Endpoint
+
+/ => { status:	"ok"}
+/health => {
+    success:true,
+    message:"Service is healthy"
+}
+
 ## Requisitos
 - Node.js >= 16 (recomendado 18+). Recomiendo usar nvm.
 - npm
