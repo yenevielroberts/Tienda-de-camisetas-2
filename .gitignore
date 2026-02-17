@@ -1,0 +1,42 @@
+# Node / JS
+node_modules/
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.vscode/
+.idea/
+
+# Builds
+dist/
+build/
+frontend/dist/
+
+# Env files / secrets
+.env
+.env.local
+.env.*.local
+
+# Logs and process files
+logs/
+*.log
+pids/
+*.pid
+*.seed
+
+# TypeScript
+*.tsbuildinfo
+
+# Coverage
+coverage/
+.nyc_output/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor temporary files
+*.swp
+*.swo
+
+# Misc
+.cache/

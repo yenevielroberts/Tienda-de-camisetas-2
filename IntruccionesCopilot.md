@@ -119,27 +119,28 @@ Yo te iré diciendo cosas como:
 Y tú solo generarás lo necesario para ese paso.
 No te adelantes a fases futuras.
 
-FASE 1 – Setup Backend
+## FASE 1 – Setup Backend
+1. 
 - Crear proyecto NestJS
 - Instalar dependencias
 
 cd /home/sjo/Documents/Tienda-de-camisetas-2
 
-# Crear carpeta backend y inicializar npm
+### Crear carpeta backend y inicializar npm
 mkdir -p backend
 cd backend
 npm init -y
 
-# Instalar dependencias esenciales de NestJS y utilidades
+### Instalar dependencias esenciales de NestJS y utilidades
 npm install @nestjs/common @nestjs/core @nestjs/platform-express @nestjs/config reflect-metadata rxjs class-transformer class-validator
 
-# Dependencias de desarrollo
+### Dependencias de desarrollo
 npm install -D typescript ts-node-dev @types/node
 
-# (Opcional) instala la CLI localmente si quieres usarla después
+### (Opcional) instala la CLI localmente si quieres usarla después
 npm install -D @nestjs/cli
 
-## Creación de archivos
+### Creación de archivos
 1. package.json (actualiza scripts)
 2. tsconfig.json
 3. env.example
@@ -148,7 +149,7 @@ npm install -D @nestjs/cli
 6. src/app.controller.ts
 7. src/app.service.ts
 
-**Instrucciones para ejecutar:**
+## Instrucciones para ejecutar:
 
 # desde /home/sjo/Documents/Tienda-de-camisetas-2/backend
 npm run start:dev
@@ -156,3 +157,8 @@ npm run start:dev
 
 **IMPORTANTE:**
 La versión de node debe ser superior a 16
+
+2. 
+- Crear el endpoint /health
+
+GET http://localhost:3000/health => {"success":true,"message":"Service is healthy"}
