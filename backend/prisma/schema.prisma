@@ -1,0 +1,48 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Generador del cliente de Prisma.
+// Usamos "prisma-client-js" para Prisma v4, que produce @prisma/client.
+// Si no necesitas una carpeta custom, puedes quitar `output` y usar el default.
+generator client {
+  provider = "prisma-client-js" // proveedor correcto para Prisma v4
+  // output = "../src/generated/prisma" // opcional: descomenta si quieres salida custom
+}
+
+// Cambiamos a sqlite para que funcione con DATABASE_URL="file:./dev.db"
+datasource db {
+  provider = "sqlite"          // sqlite para desarrollo local rápido
+  url      = env("DATABASE_URL")
+}
+
+// Usuarios de la aplicación
+model User {
+  id        Int      @id @default(autoincrement()) // Identificador
+  email     String   @unique                      // Email único
+  password  String                                // Contraseña hashed
+  // Usamos un String para almacenar el rol; valores esperados: "ADMIN" | "USER"
+  role      String   @default("USER")
+  orders    Order[]                               // Relación: un usuario puede tener muchas órdenes
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// Productos que vendemos
+model Product {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String?
+  price       Float
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// Pedidos realizados por usuarios
+model Order {
+  id        Int      @id @default(autoincrement())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  total     Float
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
