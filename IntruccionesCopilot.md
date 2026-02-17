@@ -162,3 +162,17 @@ La versión de node debe ser superior a 16
 - Crear el endpoint /health
 
 GET http://localhost:3000/health => {"success":true,"message":"Service is healthy"}
+
+
+## Fase 2
+- Crear módulo products
+- Crear endpoint GET /products (datos dummy)
+
+- Test de integración
+# Ejecutar desde la carpeta del backend
+cd /home/sjo/Documents/Tienda-de-camisetas-2/backend
+
+# Instalar dependencias para testing (Jest + ts-jest + tipos + Supertest + helper de Nest)
+npm install -D jest@29 ts-jest@29 @types/jest@29 supertest @types/supertest @nestjs/testing
+
+Ejecutar los test: npm run test:e2e
