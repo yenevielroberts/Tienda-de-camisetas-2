@@ -12,11 +12,13 @@ El objetivo es construir una API con autenticación JWT y un frontend en React.
 
 ## Endpoint
 
-/ => { status:	"ok"}
-/health => {
+GET / => { status:	"ok"}
+ GET /health => {
     success:true,
     message:"Service is healthy"
 }
+
+ GET /products => devuelve una lista de productos (datos dummy)
 
 ## Requisitos
 - Node.js >= 16 (recomendado 18+). Recomiendo usar nvm.
