@@ -7,4 +7,5 @@ import { OrdersService } from './orders.service';
   providers: [OrdersService],
   exports: [OrdersService],
 })
+// Agrupa lo necesario para trabajar con pedidos.
 export class OrdersModule {}

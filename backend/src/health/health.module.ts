@@ -6,4 +6,5 @@ import { HealthService } from './health.service';
   controllers: [HealthController],
   providers: [HealthService],
 })
+// Agrupa lo necesario para el estado del servicio.
 export class HealthModule {}

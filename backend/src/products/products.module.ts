@@ -7,4 +7,5 @@ import { ProductsService } from './products.service';
   providers: [ProductsService],
   exports: [ProductsService],
 })
+// Agrupa lo necesario para trabajar con productos.
 export class ProductsModule {}

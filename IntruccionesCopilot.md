@@ -221,4 +221,12 @@ npx prisma migrate dev --name init
 - Ver datos con Prisma Studio
 npx prisma studio
 
+## Integración de datos
+- Borrar los datos dummy e introducirlos en la base de datos.
+- Crear un seed para que popule la base de datos.
+
+    ejecutar el archivo seed desde la carpeta backend:
+
+    npm run seed o npx prisma db seed.
+
 

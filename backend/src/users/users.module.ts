@@ -7,4 +7,5 @@ import { UsersService } from './users.service';
   providers: [UsersService],
   exports: [UsersService],
 })
+// Agrupa lo necesario para trabajar con usuarios.
 export class UsersModule {}
