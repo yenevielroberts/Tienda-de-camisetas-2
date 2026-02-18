@@ -95,12 +95,3 @@ cd /home/sjo/Documents/Tienda-de-camisetas-2/backend
 # ejecutar tests e2e
 npm run test:e2e
 ```
-
-5) Buenas prácticas
-- No subas `.env` al repositorio; usa `.env.example`.
-- Si subiste secretos, rótalos y limpia el historial Git.
-- Usa `nvm` para gestionar versiones de Node por proyecto.
-
----
-
-Si algo falla en algún paso (por ejemplo versiones de Node o errores de Prisma), pega la salida del comando y la reviso.
