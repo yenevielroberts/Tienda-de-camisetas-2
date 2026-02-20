@@ -11,8 +11,9 @@ generator client {
 
 // Cambiamos a sqlite para que funcione con DATABASE_URL="file:./dev.db"
 datasource db {
-  provider = "sqlite"          // sqlite para desarrollo local rápido
+  provider = "postgresql"          // sqlite para desarrollo local rápido
   url      = env("DATABASE_URL")
+  directUrl=env("DIRECT_URL")
 }
 
 // Usuarios de la aplicación
