@@ -5,48 +5,56 @@ const prisma = new PrismaClient();
 async function main(): Promise<void> {
   const existingUsers = await prisma.user.count();
   if (existingUsers === 0) {
-    await prisma.user.createMany({
-      data: [
-        {
+    await prisma.$transaction([
+      prisma.user.create({
+        data: {
           email: "admin@example.com",
           password: "admin123",
           role: "ADMIN",
         },
-        {
+      }),
+      prisma.user.create({
+        data: {
           email: "user1@example.com",
           password: "user123",
           role: "USER",
         },
-        {
+      }),
+      prisma.user.create({
+        data: {
           email: "user2@example.com",
           password: "user123",
           role: "USER",
         },
-      ],
-    });
+      }),
+    ]);
   }
 
   const existingProducts = await prisma.product.count();
   if (existingProducts === 0) {
-    await prisma.product.createMany({
-      data: [
-        {
+    await prisma.$transaction([
+      prisma.product.create({
+        data: {
           name: "Camiseta Clasica",
           description: "Camiseta de algodon 100%",
           price: 19.99,
         },
-        {
+      }),
+      prisma.product.create({
+        data: {
           name: "Camiseta Premium",
           description: "Camiseta suave con corte moderno",
           price: 29.99,
         },
-        {
+      }),
+      prisma.product.create({
+        data: {
           name: "Camiseta Grafica",
           description: "Diseño estampado de edicion limitada",
           price: 24.5,
         },
-      ],
-    });
+      }),
+    ]);
   }
 
   const existingOrders = await prisma.order.count();
@@ -56,18 +64,20 @@ async function main(): Promise<void> {
     });
 
     if (user) {
-      await prisma.order.createMany({
-        data: [
-          {
+      await prisma.$transaction([
+        prisma.order.create({
+          data: {
             userId: user.id,
             total: 49.98,
           },
-          {
+        }),
+        prisma.order.create({
+          data: {
             userId: user.id,
             total: 29.99,
           },
-        ],
-      });
+        }),
+      ]);
     }
   }
 }
